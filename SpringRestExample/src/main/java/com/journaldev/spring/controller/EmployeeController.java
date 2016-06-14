@@ -66,7 +66,7 @@ public class EmployeeController {
 		return emp;
 	}
 
-	@RequestMapping(value = "/rest/emp/delete/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/rest/emp/update/{id}", method = RequestMethod.PUT)
 	public @ResponseBody Employee deleteEmployee(@PathVariable("id") int empId) {
 		logger.info("Start deleteEmployee.");
 		Employee emp = empData.get(empId);
