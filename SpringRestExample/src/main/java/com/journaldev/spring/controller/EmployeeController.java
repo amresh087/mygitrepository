@@ -29,7 +29,7 @@ public class EmployeeController {
 	// Map to store employees, ideally we should use database
 	Map<Integer, Employee> empData = new HashMap<Integer, Employee>();
 
-	@RequestMapping(value = EmpRestURIConstants.DUMMY_EMP, method = RequestMethod.GET)
+	@RequestMapping(value = "/rest/emp/dummy", method = RequestMethod.GET)
 	public @ResponseBody Employee getDummyEmployee() {
 		logger.info("Start getDummyEmployee");
 		Employee emp = new Employee();
@@ -40,14 +40,14 @@ public class EmployeeController {
 		return emp;
 	}
 
-	@RequestMapping(value = EmpRestURIConstants.GET_EMP, method = RequestMethod.GET)
+	@RequestMapping(value = "/rest/emp/{id}", method = RequestMethod.GET)
 	public @ResponseBody Employee getEmployee(@PathVariable("id") int empId) {
 		logger.info("Start getEmployee. ID=" + empId);
 
 		return empData.get(empId);
 	}
 
-	@RequestMapping(value = EmpRestURIConstants.GET_ALL_EMP, method = RequestMethod.GET)
+	@RequestMapping(value = "/rest/emps", method = RequestMethod.GET)
 	public @ResponseBody List<Employee> getAllEmployees() {
 		logger.info("Start getAllEmployees.");
 		List<Employee> emps = new ArrayList<Employee>();
@@ -58,7 +58,7 @@ public class EmployeeController {
 		return emps;
 	}
 
-	@RequestMapping(value = EmpRestURIConstants.CREATE_EMP, method = RequestMethod.POST)
+	@RequestMapping(value = "/rest/emp/create", method = RequestMethod.POST)
 	public @ResponseBody Employee createEmployee(@RequestBody Employee emp) {
 		logger.info("Start createEmployee.");
 		emp.setCreatedDate(new Date());
@@ -66,7 +66,7 @@ public class EmployeeController {
 		return emp;
 	}
 
-	@RequestMapping(value = EmpRestURIConstants.DELETE_EMP, method = RequestMethod.PUT)
+	@RequestMapping(value = "/rest/emp/delete/{id}", method = RequestMethod.PUT)
 	public @ResponseBody Employee deleteEmployee(@PathVariable("id") int empId) {
 		logger.info("Start deleteEmployee.");
 		Employee emp = empData.get(empId);
