@@ -5,8 +5,7 @@ import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
-
-import com.journaldev.spring.model.Employee;
+import com.amresh.spring.model.Employee;
 
 public class TestSpringRestExample {
 

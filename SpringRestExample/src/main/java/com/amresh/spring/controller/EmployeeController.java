@@ -1,4 +1,4 @@
-package com.journaldev.spring.controller;
+package com.amresh.spring.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.journaldev.spring.model.Employee;
+import com.amresh.spring.model.Employee;
 
 /**
  * Handles requests for the Employee service.
@@ -62,17 +62,26 @@ public class EmployeeController {
 		return emps;
 	}
 
-	@RequestMapping(value = "/rest/emp/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/emp/create", method = RequestMethod.POST)
 	public  Employee createEmployee(@RequestBody Employee emp) {
-		logger.info("Start createEmployee.");
+		logger.info("Start create Employee.");
 		emp.setCreatedDate(new Date());
 		empData.put(emp.getId(), emp);
 		return emp;
 	}
 
-	@RequestMapping(value = "/rest/emp/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/emp/update/{id}", method = RequestMethod.PUT)
+	public  Employee updateEmployee(@PathVariable("id") int empId) {
+		logger.info("Start update Employee.");
+		Employee emp = empData.get(empId);
+		empData.remove(empId);
+		return emp;
+	}
+	
+	
+	@RequestMapping(value = "/emp/delete/{id}", method = RequestMethod.DELETE)
 	public  Employee deleteEmployee(@PathVariable("id") int empId) {
-		logger.info("Start deleteEmployee.");
+		logger.info("Start delete Employee.");
 		Employee emp = empData.get(empId);
 		empData.remove(empId);
 		return emp;

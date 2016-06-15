@@ -1,4 +1,4 @@
-package com.journaldev.spring.model;
+package com.amresh.spring.model;
 import java.io.Serializable;
 import java.util.Date;
 import org.springframework.stereotype.Component;
