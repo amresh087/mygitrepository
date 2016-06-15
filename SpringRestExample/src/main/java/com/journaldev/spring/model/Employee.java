@@ -1,15 +1,12 @@
 package com.journaldev.spring.model;
-
 import java.io.Serializable;
 import java.util.Date;
-
+import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.DateSerializer;
-
+@Component
 public class Employee implements Serializable {
-
 	private static final long serialVersionUID = -7788619177798333712L;
-
 	private int id;
 	private String name;
 	private Date createdDate;
