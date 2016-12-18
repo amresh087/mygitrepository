@@ -1,0 +1,31 @@
+concurency
+
+chap  3.
+
+
+cretical section 
+ ----
+  The blocks of code that access this shared resource are called critical sections.
+  
+ --> In cretical section we can wrong results, data inconsistency, or error conditions, so we have to adopt one of the synchronization
+mechanisms provided by the Java language to avoid all these problems .
+
+-->The Lock interface and its implementation classes: ReentrantLock,ReentrantReadWriteLock.ReadLock, and ReentrantReadWriteLock.WriteLock
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+-->high-level mechanisms to get the synchronization of multiple threads. These high-level mechanisms are as follows
+
+   1.Semaphores:
+         A semaphore is a counter that controls the access to one or more shared resources. 
+		 This mechanism is one of the basic tools of concurrent programming and is provided by most of the programming languages.
+		 Semaphores are a generic synchronization mechanism that you can use to protect any critical section in any problem.
+   2.CountDownLatch:
+        The CountDownLatch class  that allows a thread to wait for the finalization of multiple operations.  
+   3.CyclicBarrier:
+        The CyclicBarrier class that allows the synchronization of multiple threads in a common point.
+   4.Phaser:
+        The Phaser class  that controls the execution of concurrent tasks divided in phases. All the threads must
+        finish one phase before they can continue with the next one. This is a new feature of the Java 7 API
+   5.Exchanger:
+        The Exchanger class that provides a point of data interchange between two threads
